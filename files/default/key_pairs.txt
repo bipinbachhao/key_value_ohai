@@ -1,0 +1,13 @@
+key1=value1
+key2=value2
+key3=value3
+key4=value4
+key5=value5
+variable1=val1
+variable2=val2
+variable3=val3
+variable4=val4
+variable5=val5
+# this is comment
+#This is comment
+# Should only consider keypair values starting with characters
