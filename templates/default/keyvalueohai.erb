@@ -1,0 +1,24 @@
+#
+# Cookbook Name:: key_value_ohai
+# Plugin:: keyvalueohai
+#
+# Author : Bipin Bachhao
+# Email-id : bipinbachhao@gmail.com
+#
+# Apache 2.0 license
+#
+# This is a ohai plugin will parse a file containing keypair values in
+# variable=value format, and load it in ohai database of the server
+# These keypair value can be searched using knife search
+
+Ohai.plugin(:Keyvalueohai) do
+  provides 'keyvalueohai'
+  collect_data(:linux) do
+    keyvalueohai Mash.new unless keyvalueohai
+      file = File.open('<%= @file_path %>/<%= @file_name %>')
+      file.each_line do |line|
+        line = line.tr('"','')
+        line.match(/(?<key>[^=]+)=(?<value>.+)/) { |match| keyvalueohai[match[:key]] = match[:value] }
+      end
+  end
+end

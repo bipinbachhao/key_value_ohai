@@ -6,10 +6,9 @@ provisioner:
   name: chef_zero
 
 verifier:
-  name: inspec
+#  name: inspec
 
 platforms:
-  - name: ubuntu-16.04
   - name: centos-7.2
 
 suites:
@@ -17,6 +16,6 @@ suites:
     run_list:
       - recipe[key_value_ohai::default]
     verifier:
-      inspec_tests:
-        - test/recipes
+    #  inspec_tests:
+    #    - test/recipes
     attributes:

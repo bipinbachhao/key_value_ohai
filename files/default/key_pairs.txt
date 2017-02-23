@@ -11,3 +11,6 @@ variable5=val5
 # this is comment
 #This is comment
 # Should only consider keypair values starting with characters
+Test1=test1_value
+Test2=test2_value
+test2=Test2_value
